@@ -1,0 +1,21 @@
+# MyList
+# 域名后缀匹配
+DOMAIN-SUFFIX,javdb.com
+DOMAIN-SUFFIX,demo.unlock-music.dev
+DOMAIN-SUFFIX,hdhive.online
+DOMAIN-SUFFIX,jdbstatic.com
+DOMAIN-SUFFIX,api.lrc.cx
+DOMAIN-SUFFIX,img.mukaku.com
+DOMAIN-SUFFIX,cc3001.dmm.co.jp
+DOMAIN-SUFFIX,koyeb.app
+
+# 域名关键字匹配
+DOMAIN-KEYWORD,javdb.com
+DOMAIN-KEYWORD,demo.unlock-music
+DOMAIN-KEYWORD,hdhive.online
+DOMAIN-KEYWORD,jdbstatic.com
+DOMAIN-KEYWORD,api.lrc.cx
+DOMAIN-KEYWORD,img.mukaku.com
+DOMAIN-KEYWORD,dmm.co.jp
+DOMAIN-KEYWORD,koyeb.app
+DOMAIN-KEYWORD,hdhive.online
