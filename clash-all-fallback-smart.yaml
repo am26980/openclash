@@ -16,6 +16,17 @@ proxy-providers:
       interval: 300
     proxy: 直连
 
+聚合:
+    url: "http://172.16.50.216:3005/download/%E7%A1%85%E4%BA%91"
+    type: http
+    interval: 86400
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
+    proxy: 直连
+    exclude-filter: "(?i)(2x|3x|5x|4x)"
+
 proxies:
   - {name: 直连, type: direct}
   - {name: 拒绝, type: reject}
@@ -109,6 +120,10 @@ default: &default
     - 美国-智选
     - 英国-故转
     - 英国-智选
+    - 土耳其-智选
+    - 土耳其-故转
+    - 硅云-智选
+    - 硅云-故转
     - 其他-故转
     - 拒绝
 
@@ -138,6 +153,7 @@ proxy-groups:
   - {name: Steam, <<: *default}
   - {name: Game, <<: *default}
   - {name: Crypto, <<: *default}
+  - {name: 硅云Emby, <<: *default}
   - {name: 自定义, <<: *default}
   - {name: Test, <<: *default}
   - {name: Block, <<: *default}
@@ -148,16 +164,16 @@ proxy-groups:
   - name: 所有-手选
     type: select
     include-all: true
-    filter: "^((?!(直连|拒绝)).)*$"
+    filter: "^((?!(直连|拒绝|硅云)).)*$"
 
   - name: 所有-智选
     type: smart
     include-all: true
-    policy-priority: "香港:1.2;红杏:0.8"
+    policy-priority: "香港:1.2;红杏:0.8;红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
-    filter: "^((?!(直连|拒绝)).)*$"
+    filter: "^((?!(直连|拒绝|硅云)).)*$"
 
   # 香港组
   - name: 香港-故转
@@ -172,15 +188,17 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
+    filter: "^((?!(硅云)).)*$"
     
   - name: 香港-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广港|香港|HK|Hong Kong|🇭🇰|HongKong)).*$"
+    filter: "^((?!(硅云)).)*$"
  
   # 台湾组
   - name: 台湾-故转
@@ -194,14 +212,16 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
+    filter: "^((?!(硅云)).)*$"
   - name: 台湾-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广台|台湾|台灣|TW|Tai Wan|🇹🇼|🇨🇳|TaiWan|Taiwan)).*$"
+    filter: "^((?!(硅云)).)*$"
 
   # 日本组
   - name: 日本-故转
@@ -215,14 +235,16 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+    filter: "^((?!(硅云)).)*$"
   - name: 日本-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广日|日本|JP|川日|东京|大阪|泉日|埼玉|沪日|深日|🇯🇵|Japan)).*$"
+    filter: "^((?!(硅云)).)*$"
 
   # 新加坡组
   - name: 新加坡-故转
@@ -236,14 +258,16 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
+    filter: "^((?!(硅云)).)*$"
   - name: 新加坡-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广新|新加坡|SG|坡|狮城|🇸🇬|Singapore)).*$"
+    filter: "^((?!(硅云)).)*$"
 
   # 韩国组
   - name: 韩国-故转
@@ -257,14 +281,16 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
+    filter: "^((?!(硅云)).)*$"
   - name: 韩国-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广韩|韩国|韓國|KR|首尔|春川|🇰🇷|Korea)).*$"
+    filter: "^((?!(硅云)).)*$"
 
   # 美国组
   - name: 美国-故转
@@ -278,14 +304,16 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+    filter: "^((?!(硅云)).)*$"
   - name: 美国-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(广美|美|US|纽约|波特兰|达拉斯|俄勒|凤凰城|费利蒙|拉斯|洛杉|圣何塞|圣克拉|西雅|芝加|🇺🇸|United States)).*$"
+    filter: "^((?!(硅云)).)*$"
 
   # 英国组
   - name: 英国-故转
@@ -299,14 +327,61 @@ proxy-groups:
     type: select
     include-all: true
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+    filter: "^((?!(硅云)).)*$"
   - name: 英国-智选
     type: smart
     include-all: true
-    policy-priority: "红杏:0.8"
+    policy-priority: "红杏FR:1.5"
     uselightgbm: true
     collectdata: true
     interval: 300
     filter: "(?=.*(英国|英|伦敦|UK|United Kingdom|🇬🇧|London)).*$"
+    filter: "^((?!(硅云)).)*$"
+
+  # 硅云组
+  - name: 硅云-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 硅云-手选
+      - 硅云-智选
+  - name: 硅云-手选
+    type: select
+    include-all: true
+    filter: "(?=.*(硅云)).*$"
+  - name: 硅云-智选
+    type: smart
+    include-all: true
+    policy-priority: "红杏FR:1.5"
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(硅云)).*$"
+
+      # 土耳其组
+  - name: 土耳其-故转
+    type: fallback
+    interval: 300
+    lazy: false
+    proxies:
+      - 土耳其-手选
+      - 土耳其-智选
+  - name: 土耳其-手选
+    type: select
+    include-all: true
+    filter: "(?=.*(土耳)).*$"
+    filter: "^((?!(硅云)).)*$"
+  - name: 土耳其-智选
+    type: smart
+    include-all: true
+    policy-priority: "红杏FR:1.5"
+    uselightgbm: true
+    collectdata: true
+    interval: 300
+    filter: "(?=.*(土耳)).*$"
+    filter: "^((?!(硅云)).)*$"
+
 
   # 其他组
   - name: 其他-故转
@@ -370,6 +445,7 @@ rules:
   - RULE-SET,Google / Domain,Google
   - RULE-SET,Google / IP,Google,no-resolve
   - RULE-SET,Nvidia / Domain,Nvidia
+  - RULE-SET,GYEmby / Domain,硅云Emby
   - RULE-SET,ZDY / Domain,自定义
   - RULE-SET,Proxy / Domain,国外
   - RULE-SET,Globe / Domain,国外  
@@ -422,6 +498,7 @@ rule-providers:
   Nintend / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Nintendo/Nintendo.list"}
   Google / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   Google / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  GYEmby / Domain: {<<: *class, url: "https://raw.githubusercontent.com/am26980/openclash/refs/heads/main/Emby.list"}
   ZDY / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/am26980/openclash/refs/heads/main/zdy.list"}
   Proxy / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list"}
   Globe / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"} 
