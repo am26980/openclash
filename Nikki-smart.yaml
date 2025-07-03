@@ -459,6 +459,7 @@ rule-providers:
   Proxy / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Proxy.list"}
   Globe / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/master/rule/Clash/Global/Global.list"} 
   Direct / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/liandu2024/clash/refs/heads/main/list/Direct.list"}
+  Direct / Domain: {<<: *class, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/am26980/openclash/refs/heads/main/zdyDirect"}
   China / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
   China / IP: {<<: *ip, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
   Private / Domain: {<<: *domain, url: "https://github.moeyy.xyz/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
