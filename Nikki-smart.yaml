@@ -7,7 +7,7 @@
 proxy-providers:
 
   聚合:
-    url: "http://172.16.50.216:3005/download/collection/hub"
+    url: "http://172.16.50.216:3000/download/collection/sub"
     type: http
     interval: 86400
     health-check:
