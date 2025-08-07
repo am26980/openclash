@@ -2,6 +2,8 @@
 # 域名后缀匹配
 DOMAIN-SUFFIX,istatmenus.app
 DOMAIN-SUFFIX,s.outong-valve.com
+DOMAIN-SUFFIX,api.mac-stats.com
 # 域名关键字匹配
 DOMAIN-KEYWORD,istatmenus.app
 DOMAIN-KEYWORD,s.outong-valve.com
+DOMAIN-KEYWORD,api.mac-stats.com
