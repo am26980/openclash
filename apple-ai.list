@@ -1,0 +1,9 @@
+# MyList
+# 域名后缀匹配
+DOMAIN-SUFFIX,guzzoni.apple.com,OpenAI
+DOMAIN-SUFFIX,smoot.apple.com,OpenAI
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,OpenAI
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com,OpenAI
+DOMAIN-SUFFIX,cp4.cloudflare.com,OpenAI
+DOMAIN-SUFFIX,apple-relay.apple.com,OpenAI
+DOMAIN-SUFFIX,gspe1-ssl.ls.apple.com,OpenAI
