@@ -8,7 +8,7 @@ DOMAIN-SUFFIX,api.lrc.cx
 DOMAIN-SUFFIX,img.mukaku.com
 DOMAIN-SUFFIX,koyeb.app
 DOMAIN-SUFFIX,hongxingdl.com
-
+DOMAIN-SUFFIX,hxhomelove.com
 # 域名关键字匹配
 DOMAIN-KEYWORD,javdb.com
 DOMAIN-KEYWORD,demo.unlock-music
@@ -19,3 +19,4 @@ DOMAIN-KEYWORD,img.mukaku.com
 DOMAIN-KEYWORD,koyeb.app
 DOMAIN-KEYWORD,hdhive.online
 DOMAIN-KEYWORD,hongxingdl.com
+DOMAIN-KEYWORD,hxhomelove.com
