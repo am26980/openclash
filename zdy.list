@@ -7,6 +7,7 @@ DOMAIN-SUFFIX,jdbstatic.com
 DOMAIN-SUFFIX,api.lrc.cx
 DOMAIN-SUFFIX,img.mukaku.com
 DOMAIN-SUFFIX,koyeb.app
+DOMAIN-SUFFIX,hongxingdl.com
 
 # 域名关键字匹配
 DOMAIN-KEYWORD,javdb.com
@@ -17,3 +18,4 @@ DOMAIN-KEYWORD,api.lrc.cx
 DOMAIN-KEYWORD,img.mukaku.com
 DOMAIN-KEYWORD,koyeb.app
 DOMAIN-KEYWORD,hdhive.online
+DOMAIN-KEYWORD,hongxingdl.com
